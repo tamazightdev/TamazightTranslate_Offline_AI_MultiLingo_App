@@ -10,7 +10,7 @@ import { Keyboard, Zap, Camera } from 'lucide-react-native';
 export default function TranslateScreen() {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
-  const [fromLanguage, setFromLanguage] = useState('English');
+  const [fromLanguage, setFromLanguage] = useState('Arabic (العربية)');
   const [toLanguage, setToLanguage] = useState('Tamazight (ⵜⴰⵎⴰⵣⵉⵖⵜ)');
   const [showTifinghKeyboard, setShowTifinghKeyboard] = useState(false);
   const [isTranslating, setIsTranslating] = useState(false);

@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Modal, FlatList } from 'react-native';
 import { ChevronDown, ArrowUpDown } from 'lucide-react-native';
 import { GlassCard } from './GlassCard';
 import { Platform } from 'react-native';
@@ -14,11 +14,11 @@ interface LanguageSelectorProps {
 }
 
 const LANGUAGES = [
-  'Tamazight (ⵜⴰⵎⴰⵣⵉⵖⵜ)',
-  'Central Atlas Tamazight',
   'Arabic (العربية)',
+  'English',
   'French (Français)',
-  'English'
+  'Tamazight (ⵜⴰⵎⴰⵣⵉⵖⵜ)',
+  'Central Atlas Tamazight'
 ];
 
 export function LanguageSelector({ 
@@ -28,7 +28,9 @@ export function LanguageSelector({
   onToLanguageChange, 
   onSwap 
 }: LanguageSelectorProps) {
-  
+  const [isFromModalVisible, setFromModalVisible] = useState(false);
+  const [isToModalVisible, setToModalVisible] = useState(false);
+
   const handleSwap = () => {
     if (Platform.OS !== 'web') {
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
@@ -39,7 +41,7 @@ export function LanguageSelector({
   return (
     <GlassCard style={styles.container}>
       <View style={styles.selectorRow}>
-        <TouchableOpacity style={styles.languageButton}>
+        <TouchableOpacity style={styles.languageButton} onPress={() => setFromModalVisible(true)}>
           <Text style={styles.languageText}>{fromLanguage}</Text>
           <ChevronDown size={20} color="#FFFFFF" strokeWidth={2} />
         </TouchableOpacity>
@@ -48,14 +50,67 @@ export function LanguageSelector({
           <ArrowUpDown size={24} color="#FFFFFF" strokeWidth={2} />
         </TouchableOpacity>
         
-        <TouchableOpacity style={styles.languageButton}>
+        <TouchableOpacity style={styles.languageButton} onPress={() => setToModalVisible(true)}>
           <Text style={styles.languageText}>{toLanguage}</Text>
           <ChevronDown size={20} color="#FFFFFF" strokeWidth={2} />
         </TouchableOpacity>
       </View>
+
+      <LanguageModal
+        visible={isFromModalVisible}
+        languages={LANGUAGES.filter(lang => lang !== toLanguage)}
+        onSelect={(language) => {
+          onFromLanguageChange(language);
+          setFromModalVisible(false);
+        }}
+        onClose={() => setFromModalVisible(false)}
+      />
+
+      <LanguageModal
+        visible={isToModalVisible}
+        languages={LANGUAGES.filter(lang => lang !== fromLanguage)}
+        onSelect={(language) => {
+          onToLanguageChange(language);
+          setToModalVisible(false);
+        }}
+        onClose={() => setToModalVisible(false)}
+      />
     </GlassCard>
   );
 }
+
+interface LanguageModalProps {
+  visible: boolean;
+  languages: string[];
+  onSelect: (language: string) => void;
+  onClose: () => void;
+}
+
+const LanguageModal: React.FC<LanguageModalProps> = ({ visible, languages, onSelect, onClose }) => (
+  <Modal
+    animationType="slide"
+    transparent={true}
+    visible={visible}
+    onRequestClose={onClose}
+  >
+    <View style={styles.modalContainer}>
+      <View style={styles.modalContent}>
+        <FlatList
+          data={languages}
+          keyExtractor={(item) => item}
+          renderItem={({ item }) => (
+            <TouchableOpacity style={styles.modalItem} onPress={() => onSelect(item)}>
+              <Text style={styles.modalItemText}>{item}</Text>
+            </TouchableOpacity>
+          )}
+        />
+        <TouchableOpacity style={styles.closeButton} onPress={onClose}>
+          <Text style={styles.closeButtonText}>Close</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  </Modal>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -91,5 +146,35 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: 16,
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContent: {
+    backgroundColor: '#2D3748',
+    borderRadius: 12,
+    padding: 20,
+    width: '80%',
+    maxHeight: '60%',
+  },
+  modalItem: {
+    paddingVertical: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#4A5568',
+  },
+  modalItemText: {
+    color: '#FFFFFF',
+    fontSize: 18,
+  },
+  closeButton: {
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  closeButtonText: {
+    color: '#38B2AC',
+    fontSize: 18,
   },
 });
