@@ -12,11 +12,11 @@ export function GradientBackground({ children, style, variant = 'primary' }: Gra
   const getColors = () => {
     switch (variant) {
       case 'emergency':
-        return ['#DC2626', '#991B1B']; // Red gradient for emergency
+        return ['#C53030', '#822727'] as const; // Darker red gradient for emergency
       case 'secondary':
-        return ['rgba(67, 56, 202, 0.1)', 'rgba(219, 39, 119, 0.1)']; // Subtle gradient
+        return ['rgba(67, 56, 202, 0.1)', 'rgba(219, 39, 119, 0.1)'] as const; // Subtle gradient
       default:
-        return ['#4338CA', '#DB2777']; // Primary indigo to magenta
+        return ['#4338CA', '#DB2777'] as const; // Primary indigo to magenta
     }
   };
 
