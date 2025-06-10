@@ -119,7 +119,7 @@ export default function EmergencyScreen() {
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case 'high': return '#FF1744';
+      case 'high': return '#F44336';
       case 'medium': return '#FF9800';
       default: return '#4CAF50';
     }
@@ -327,7 +327,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255, 255, 255, 0.35)',
   },
   languageActive: {
-    backgroundColor: 'rgba(76, 175, 80, 0.9)',
+    backgroundColor: '#4CAF50',
   },
   languageText: {
     color: 'rgba(255, 255, 255, 0.9)',
@@ -375,7 +375,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: 'rgba(76, 175, 80, 0.9)',
+    backgroundColor: '#4CAF50',
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',

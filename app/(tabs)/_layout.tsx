@@ -23,7 +23,7 @@ export default function TabLayout() {
         tabBarBackground: () => (
           <View style={StyleSheet.absoluteFillObject}>
             <LinearGradient
-              colors={['rgba(255, 107, 53, 0.95)', 'rgba(247, 147, 30, 0.95)', 'rgba(255, 64, 129, 0.95)']}
+              colors={['rgba(233, 30, 99, 0.95)', 'rgba(173, 20, 87, 0.95)', 'rgba(240, 98, 146, 0.95)']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 1 }}
               style={StyleSheet.absoluteFillObject}

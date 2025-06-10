@@ -128,7 +128,7 @@ export default function HistoryScreen() {
                         style={styles.actionButton}
                         onPress={() => deleteItem(item.id)}
                       >
-                        <Trash2 size={22} color="rgba(255, 23, 68, 0.9)" strokeWidth={2.5} />
+                        <Trash2 size={22} color="rgba(244, 67, 54, 0.9)" strokeWidth={2.5} />
                       </TouchableOpacity>
                     </View>
                   </View>
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255, 255, 255, 0.3)',
   },
   filterActive: {
-    backgroundColor: 'rgba(255, 215, 0, 0.9)',
+    backgroundColor: '#FFD700',
   },
   scrollView: {
     flex: 1,

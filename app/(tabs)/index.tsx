@@ -118,7 +118,7 @@ export default function TranslateScreen() {
             {outputText && (
               <GlassCard style={styles.aiInfo}>
                 <View style={styles.aiRow}>
-                  <Zap size={18} color="#FFD700" strokeWidth={2.5} />
+                  <Zap size={18} color="#4CAF50" strokeWidth={2.5} />
                   <Text style={styles.aiText}>
                     Translated offline using Gemma-3 AI • Processing time: 1.2s
                   </Text>
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(255, 215, 0, 0.9)',
+    backgroundColor: '#4CAF50',
     borderRadius: 20,
     paddingVertical: 18,
     paddingHorizontal: 28,
@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
     elevation: 6,
   },
   translating: {
-    backgroundColor: 'rgba(255, 152, 0, 0.9)',
+    backgroundColor: '#FF9800',
   },
   translateText: {
     color: '#FFFFFF',

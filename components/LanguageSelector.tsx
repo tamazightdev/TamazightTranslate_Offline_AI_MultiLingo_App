@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     width: 52,
     height: 52,
     borderRadius: 26,
-    backgroundColor: 'rgba(255, 215, 0, 0.9)',
+    backgroundColor: '#4CAF50',
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: 16,
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
   },
   modalContent: {
-    backgroundColor: 'rgba(255, 107, 53, 0.95)',
+    backgroundColor: 'rgba(233, 30, 99, 0.95)',
     borderRadius: 20,
     padding: 24,
     width: '85%',

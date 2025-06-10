@@ -318,7 +318,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255, 255, 255, 0.35)',
   },
   categoryActive: {
-    backgroundColor: 'rgba(33, 150, 243, 0.9)',
+    backgroundColor: '#2196F3',
   },
   categoryText: {
     color: 'rgba(255, 255, 255, 0.9)',
@@ -339,7 +339,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255, 255, 255, 0.35)',
   },
   languageActive: {
-    backgroundColor: 'rgba(76, 175, 80, 0.9)',
+    backgroundColor: '#4CAF50',
   },
   languageText: {
     color: 'rgba(255, 255, 255, 0.9)',
@@ -382,7 +382,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: 'rgba(33, 150, 243, 0.9)',
+    backgroundColor: '#2196F3',
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',
