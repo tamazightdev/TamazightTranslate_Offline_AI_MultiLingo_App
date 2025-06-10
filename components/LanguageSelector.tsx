@@ -17,8 +17,7 @@ const LANGUAGES = [
   'Arabic (العربية)',
   'English',
   'French (Français)',
-  'Tamazight (ⵜⴰⵎⴰⵣⵉⵖⵜ)',
-  'Central Atlas Tamazight'
+  'Tamazight (ⵜⴰⵎⴰⵣⵉⵖⵜ)'
 ];
 
 export function LanguageSelector({ 

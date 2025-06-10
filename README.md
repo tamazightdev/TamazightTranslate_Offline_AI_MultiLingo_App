@@ -6,7 +6,7 @@ A beautiful, production-ready mobile translation app built with Expo and React N
 
 ### Core Translation Features
 - **Offline AI Translation**: Powered by Gemma-3 AI model for fast, offline translations
-- **Multi-Language Support**: Tamazight (ⵜⴰⵎⴰⵣⵉⵖⵜ), Central Atlas Tamazight, Arabic, French, and English
+- **Multi-Language Support**: Tamazight (ⵜⴰⵎⴰⵣⵉⵖⵜ), Arabic, French, and English
 - **Tifinagh Keyboard**: Built-in virtual keyboard for typing in Tifinagh script
 - **Voice Input & Output**: Speech-to-text input and text-to-speech output
 - **Camera Translation**: OCR capabilities for translating text from images
@@ -199,7 +199,6 @@ The app uses a tab-based navigation structure with four main sections:
 
 ### Primary Languages
 - **Tamazight (ⵜⴰⵎⴰⵣⵉⵖⵜ)**: Standard Tamazight with Tifinagh script
-- **Central Atlas Tamazight**: Regional variant
 - **Arabic (العربية)**: Modern Standard Arabic
 - **French (Français)**: Standard French
 - **English**: International English
