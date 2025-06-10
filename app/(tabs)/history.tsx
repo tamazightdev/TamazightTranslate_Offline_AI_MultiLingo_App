@@ -84,14 +84,14 @@ export default function HistoryScreen() {
 
           <GlassCard style={styles.searchCard}>
             <View style={styles.searchContainer}>
-              <Search size={20} color="rgba(255, 255, 255, 0.7)" strokeWidth={2} />
+              <Search size={22} color="rgba(255, 255, 255, 0.8)" strokeWidth={2.5} />
               <Text style={styles.searchPlaceholder}>Search translations...</Text>
             </View>
             <TouchableOpacity 
               style={[styles.filterButton, showFavoritesOnly && styles.filterActive]}
               onPress={() => setShowFavoritesOnly(!showFavoritesOnly)}
             >
-              <Star size={20} color="#FFFFFF" strokeWidth={2} />
+              <Star size={22} color="#FFFFFF" strokeWidth={2.5} />
             </TouchableOpacity>
           </GlassCard>
 
@@ -109,7 +109,7 @@ export default function HistoryScreen() {
                   <View style={styles.itemHeader}>
                     <View style={styles.languageInfo}>
                       <Text style={styles.languageText}>{item.fromLang}</Text>
-                      <ArrowUpDown size={16} color="rgba(255, 255, 255, 0.6)" strokeWidth={2} />
+                      <ArrowUpDown size={18} color="rgba(255, 255, 255, 0.7)" strokeWidth={2.5} />
                       <Text style={styles.languageText}>{item.toLang}</Text>
                     </View>
                     <View style={styles.itemActions}>
@@ -118,17 +118,17 @@ export default function HistoryScreen() {
                         onPress={() => toggleFavorite(item.id)}
                       >
                         <Star 
-                          size={20} 
-                          color={item.isFavorite ? '#F59E0B' : 'rgba(255, 255, 255, 0.6)'} 
-                          fill={item.isFavorite ? '#F59E0B' : 'none'}
-                          strokeWidth={2} 
+                          size={22} 
+                          color={item.isFavorite ? '#FFD700' : 'rgba(255, 255, 255, 0.7)'} 
+                          fill={item.isFavorite ? '#FFD700' : 'none'}
+                          strokeWidth={2.5} 
                         />
                       </TouchableOpacity>
                       <TouchableOpacity 
                         style={styles.actionButton}
                         onPress={() => deleteItem(item.id)}
                       >
-                        <Trash2 size={20} color="rgba(239, 68, 68, 0.8)" strokeWidth={2} />
+                        <Trash2 size={22} color="rgba(255, 23, 68, 0.9)" strokeWidth={2.5} />
                       </TouchableOpacity>
                     </View>
                   </View>
@@ -161,128 +161,141 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginBottom: 24,
-    marginTop: 20,
+    marginBottom: 28,
+    marginTop: 24,
     paddingHorizontal: 20,
   },
   title: {
-    fontSize: 28,
+    fontSize: 30,
     fontFamily: 'Inter-Bold',
     color: '#FFFFFF',
     textAlign: 'center',
+    fontWeight: '700',
   },
   subtitle: {
-    fontSize: 16,
-    fontFamily: 'Inter-Regular',
-    color: 'rgba(255, 255, 255, 0.8)',
+    fontSize: 17,
+    fontFamily: 'Inter-Medium',
+    color: 'rgba(255, 255, 255, 0.9)',
     marginTop: 8,
+    fontWeight: '500',
   },
   searchCard: {
     marginHorizontal: 20,
-    marginBottom: 16,
+    marginBottom: 20,
   },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
+    gap: 14,
     flex: 1,
   },
   searchPlaceholder: {
-    color: 'rgba(255, 255, 255, 0.7)',
-    fontSize: 16,
-    fontFamily: 'Inter-Regular',
+    color: 'rgba(255, 255, 255, 0.8)',
+    fontSize: 17,
+    fontFamily: 'Inter-Medium',
+    fontWeight: '500',
   },
   filterButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    right: 20,
-    top: 20,
+    right: 24,
+    top: 24,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.3)',
   },
   filterActive: {
-    backgroundColor: 'rgba(245, 158, 11, 0.8)',
+    backgroundColor: 'rgba(255, 215, 0, 0.9)',
   },
   scrollView: {
     flex: 1,
     paddingHorizontal: 20,
   },
   historyItem: {
-    marginBottom: 16,
+    marginBottom: 20,
   },
   itemHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 16,
   },
   languageInfo: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: 10,
   },
   languageText: {
-    color: 'rgba(255, 255, 255, 0.8)',
-    fontSize: 14,
-    fontFamily: 'Inter-Medium',
+    color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: 15,
+    fontFamily: 'Inter-SemiBold',
+    fontWeight: '600',
   },
   itemActions: {
     flexDirection: 'row',
-    gap: 8,
+    gap: 10,
   },
   actionButton: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.25)',
   },
   textContainer: {
-    marginBottom: 12,
+    marginBottom: 16,
   },
   sourceText: {
     color: '#FFFFFF',
-    fontSize: 16,
-    fontFamily: 'Inter-Regular',
-    lineHeight: 24,
+    fontSize: 17,
+    fontFamily: 'Inter-Medium',
+    lineHeight: 26,
+    fontWeight: '500',
   },
   arrow: {
     alignItems: 'center',
-    marginVertical: 8,
+    marginVertical: 10,
   },
   arrowText: {
-    color: 'rgba(255, 255, 255, 0.6)',
-    fontSize: 16,
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontSize: 18,
+    fontFamily: 'Inter-Medium',
   },
   translatedText: {
     color: '#FFFFFF',
-    fontSize: 16,
-    fontFamily: 'Inter-Medium',
-    lineHeight: 24,
+    fontSize: 17,
+    fontFamily: 'Inter-SemiBold',
+    lineHeight: 26,
+    fontWeight: '600',
   },
   timestamp: {
-    color: 'rgba(255, 255, 255, 0.5)',
-    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.6)',
+    fontSize: 13,
     fontFamily: 'Inter-Regular',
   },
   emptyCard: {
     alignItems: 'center',
-    paddingVertical: 40,
+    paddingVertical: 48,
   },
   emptyText: {
     color: '#FFFFFF',
-    fontSize: 18,
-    fontFamily: 'Inter-SemiBold',
-    marginBottom: 8,
+    fontSize: 20,
+    fontFamily: 'Inter-Bold',
+    marginBottom: 10,
+    fontWeight: '700',
   },
   emptySubtext: {
-    color: 'rgba(255, 255, 255, 0.7)',
-    fontSize: 14,
-    fontFamily: 'Inter-Regular',
+    color: 'rgba(255, 255, 255, 0.8)',
+    fontSize: 16,
+    fontFamily: 'Inter-Medium',
     textAlign: 'center',
+    fontWeight: '500',
   },
 });

@@ -76,20 +76,20 @@ export function TranslationInput({
               style={[styles.actionButton, isRecording && styles.recording]}
               onPress={() => setIsRecording(!isRecording)}
             >
-              <Mic size={20} color="#FFFFFF" strokeWidth={2} />
+              <Mic size={20} color="#FFFFFF" strokeWidth={2.5} />
             </TouchableOpacity>
           )}
           {value ? (
             <>
               <TouchableOpacity style={styles.actionButton} onPress={handleSpeech}>
-                <Volume2 size={20} color="#FFFFFF" strokeWidth={2} />
+                <Volume2 size={20} color="#FFFFFF" strokeWidth={2.5} />
               </TouchableOpacity>
               <TouchableOpacity style={styles.actionButton} onPress={handleCopy}>
-                <Copy size={20} color="#FFFFFF" strokeWidth={2} />
+                <Copy size={20} color="#FFFFFF" strokeWidth={2.5} />
               </TouchableOpacity>
               {isOutput && (
                 <TouchableOpacity style={styles.actionButton} onPress={handleFavorite}>
-                  <Heart size={20} color="#FFFFFF" strokeWidth={2} />
+                  <Heart size={20} color="#FFFFFF" strokeWidth={2.5} />
                 </TouchableOpacity>
               )}
             </>
@@ -101,7 +101,7 @@ export function TranslationInput({
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}
-        placeholderTextColor="rgba(255, 255, 255, 0.6)"
+        placeholderTextColor="rgba(255, 255, 255, 0.7)"
         multiline
         editable={!isOutput}
         textAlignVertical="top"
@@ -112,39 +112,52 @@ export function TranslationInput({
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 8,
+    marginVertical: 12,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 16,
   },
   languageLabel: {
     color: '#FFFFFF',
-    fontSize: 16,
-    fontFamily: 'Inter-SemiBold',
+    fontSize: 17,
+    fontFamily: 'Inter-Bold',
+    fontWeight: '700',
   },
   actions: {
     flexDirection: 'row',
-    gap: 8,
+    gap: 10,
   },
   actionButton: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.3)',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
   },
   recording: {
-    backgroundColor: '#EF4444',
+    backgroundColor: '#FF1744',
   },
   input: {
     color: '#FFFFFF',
-    fontSize: 16,
-    fontFamily: 'Inter-Regular',
-    minHeight: 80,
+    fontSize: 17,
+    fontFamily: 'Inter-Medium',
+    minHeight: 90,
     textAlignVertical: 'top',
+    fontWeight: '500',
+    lineHeight: 26,
   },
 });

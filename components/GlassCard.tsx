@@ -8,7 +8,7 @@ interface GlassCardProps {
   intensity?: number;
 }
 
-export function GlassCard({ children, style, intensity = 15 }: GlassCardProps) {
+export function GlassCard({ children, style, intensity = 20 }: GlassCardProps) {
   return (
     <View style={[styles.container, style]}>
       <BlurView intensity={intensity} style={StyleSheet.absoluteFillObject} />
@@ -21,13 +21,21 @@ export function GlassCard({ children, style, intensity = 15 }: GlassCardProps) {
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 16,
+    borderRadius: 24,
     overflow: 'hidden',
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.2)',
+    borderColor: 'rgba(255, 255, 255, 0.25)',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 24,
+    elevation: 8,
   },
   content: {
-    padding: 20,
+    padding: 24,
   },
 });

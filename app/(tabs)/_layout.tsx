@@ -14,31 +14,33 @@ export default function TabLayout() {
           bottom: 0,
           left: 0,
           right: 0,
-          height: 85,
+          height: 90,
           backgroundColor: 'transparent',
           borderTopWidth: 0,
           elevation: 0,
+          paddingBottom: 8,
         },
         tabBarBackground: () => (
           <View style={StyleSheet.absoluteFillObject}>
             <LinearGradient
-              colors={['rgba(67, 56, 202, 0.95)', 'rgba(219, 39, 119, 0.95)']}
+              colors={['rgba(255, 107, 53, 0.95)', 'rgba(247, 147, 30, 0.95)', 'rgba(255, 64, 129, 0.95)']}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 1 }}
               style={StyleSheet.absoluteFillObject}
             />
             <BlurView
-              intensity={20}
+              intensity={25}
               style={StyleSheet.absoluteFillObject}
             />
           </View>
         ),
         tabBarActiveTintColor: '#FFFFFF',
-        tabBarInactiveTintColor: 'rgba(255, 255, 255, 0.6)',
+        tabBarInactiveTintColor: 'rgba(255, 255, 255, 0.7)',
         tabBarLabelStyle: {
-          fontFamily: 'Inter-Medium',
+          fontFamily: 'Inter-SemiBold',
           fontSize: 12,
           marginBottom: 8,
+          fontWeight: '600',
         },
         tabBarIconStyle: {
           marginTop: 8,
@@ -49,7 +51,7 @@ export default function TabLayout() {
         options={{
           title: 'Translate',
           tabBarIcon: ({ size, color }) => (
-            <Languages size={size} color={color} strokeWidth={2} />
+            <Languages size={size} color={color} strokeWidth={2.5} />
           ),
         }}
       />
@@ -58,7 +60,7 @@ export default function TabLayout() {
         options={{
           title: 'History',
           tabBarIcon: ({ size, color }) => (
-            <History size={size} color={color} strokeWidth={2} />
+            <History size={size} color={color} strokeWidth={2.5} />
           ),
         }}
       />
@@ -67,7 +69,7 @@ export default function TabLayout() {
         options={{
           title: 'Emergency',
           tabBarIcon: ({ size, color }) => (
-            <AlertTriangle size={size} color={color} strokeWidth={2} />
+            <AlertTriangle size={size} color={color} strokeWidth={2.5} />
           ),
         }}
       />
@@ -76,7 +78,7 @@ export default function TabLayout() {
         options={{
           title: 'Government',
           tabBarIcon: ({ size, color }) => (
-            <Building2 size={size} color={color} strokeWidth={2} />
+            <Building2 size={size} color={color} strokeWidth={2.5} />
           ),
         }}
       />

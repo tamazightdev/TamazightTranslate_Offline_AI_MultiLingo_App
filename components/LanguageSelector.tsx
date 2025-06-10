@@ -42,16 +42,16 @@ export function LanguageSelector({
       <View style={styles.selectorRow}>
         <TouchableOpacity style={styles.languageButton} onPress={() => setFromModalVisible(true)}>
           <Text style={styles.languageText}>{fromLanguage}</Text>
-          <ChevronDown size={20} color="#FFFFFF" strokeWidth={2} />
+          <ChevronDown size={22} color="#FFFFFF" strokeWidth={2.5} />
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.swapButton} onPress={handleSwap}>
-          <ArrowUpDown size={24} color="#FFFFFF" strokeWidth={2} />
+          <ArrowUpDown size={26} color="#FFFFFF" strokeWidth={2.5} />
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.languageButton} onPress={() => setToModalVisible(true)}>
           <Text style={styles.languageText}>{toLanguage}</Text>
-          <ChevronDown size={20} color="#FFFFFF" strokeWidth={2} />
+          <ChevronDown size={22} color="#FFFFFF" strokeWidth={2.5} />
         </TouchableOpacity>
       </View>
 
@@ -113,7 +113,7 @@ const LanguageModal: React.FC<LanguageModalProps> = ({ visible, languages, onSel
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 16,
+    marginVertical: 20,
   },
   selectorRow: {
     flexDirection: 'row',
@@ -125,55 +125,81 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 12,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    borderRadius: 12,
+    padding: 16,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    borderRadius: 16,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.2)',
+    borderColor: 'rgba(255, 255, 255, 0.3)',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
   },
   languageText: {
     color: '#FFFFFF',
     fontSize: 16,
-    fontFamily: 'Inter-Medium',
+    fontFamily: 'Inter-SemiBold',
     flex: 1,
+    fontWeight: '600',
   },
   swapButton: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    backgroundColor: 'rgba(255, 215, 0, 0.9)',
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: 16,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 4,
   },
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
   },
   modalContent: {
-    backgroundColor: '#2D3748',
-    borderRadius: 12,
-    padding: 20,
-    width: '80%',
-    maxHeight: '60%',
+    backgroundColor: 'rgba(255, 107, 53, 0.95)',
+    borderRadius: 20,
+    padding: 24,
+    width: '85%',
+    maxHeight: '70%',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.3)',
   },
   modalItem: {
-    paddingVertical: 15,
+    paddingVertical: 18,
     borderBottomWidth: 1,
-    borderBottomColor: '#4A5568',
+    borderBottomColor: 'rgba(255, 255, 255, 0.2)',
   },
   modalItemText: {
     color: '#FFFFFF',
     fontSize: 18,
+    fontFamily: 'Inter-Medium',
+    fontWeight: '500',
   },
   closeButton: {
-    marginTop: 20,
+    marginTop: 24,
     alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    borderRadius: 12,
+    paddingVertical: 12,
   },
   closeButtonText: {
-    color: '#38B2AC',
+    color: '#FFFFFF',
     fontSize: 18,
+    fontFamily: 'Inter-SemiBold',
+    fontWeight: '600',
   },
 });

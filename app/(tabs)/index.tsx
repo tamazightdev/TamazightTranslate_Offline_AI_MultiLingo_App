@@ -78,7 +78,7 @@ export default function TranslateScreen() {
                 style={styles.controlButton}
                 onPress={() => setShowTifinghKeyboard(!showTifinghKeyboard)}
               >
-                <Keyboard size={20} color="#FFFFFF" strokeWidth={2} />
+                <Keyboard size={22} color="#FFFFFF" strokeWidth={2.5} />
                 <Text style={styles.controlText}>Tifinagh</Text>
               </TouchableOpacity>
 
@@ -87,14 +87,14 @@ export default function TranslateScreen() {
                 onPress={handleTranslate}
                 disabled={isTranslating || !inputText.trim()}
               >
-                <Zap size={24} color="#FFFFFF" strokeWidth={2} />
+                <Zap size={26} color="#FFFFFF" strokeWidth={2.5} />
                 <Text style={styles.translateText}>
                   {isTranslating ? 'Translating...' : 'Translate'}
                 </Text>
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.controlButton}>
-                <Camera size={20} color="#FFFFFF" strokeWidth={2} />
+                <Camera size={22} color="#FFFFFF" strokeWidth={2.5} />
                 <Text style={styles.controlText}>Camera</Text>
               </TouchableOpacity>
             </View>
@@ -118,7 +118,7 @@ export default function TranslateScreen() {
             {outputText && (
               <GlassCard style={styles.aiInfo}>
                 <View style={styles.aiRow}>
-                  <Zap size={16} color="#10B981" strokeWidth={2} />
+                  <Zap size={18} color="#FFD700" strokeWidth={2.5} />
                   <Text style={styles.aiText}>
                     Translated offline using Gemma-3 AI • Processing time: 1.2s
                   </Text>
@@ -145,69 +145,88 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginBottom: 24,
-    marginTop: 16,
+    marginBottom: 32,
+    marginTop: 20,
   },
   headerImage: {
-    width: '80%',
-    height: 200,
+    width: '85%',
+    height: 180,
   },
   controls: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginVertical: 16,
-    gap: 12,
+    marginVertical: 20,
+    gap: 16,
   },
   controlButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    borderRadius: 12,
-    padding: 12,
-    minWidth: 80,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    borderRadius: 16,
+    padding: 16,
+    minWidth: 85,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.3)',
+    borderColor: 'rgba(255, 255, 255, 0.35)',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 4,
   },
   controlText: {
     color: '#FFFFFF',
-    fontSize: 12,
-    fontFamily: 'Inter-Medium',
-    marginTop: 4,
+    fontSize: 13,
+    fontFamily: 'Inter-SemiBold',
+    marginTop: 6,
+    fontWeight: '600',
   },
   translateButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(16, 185, 129, 0.8)',
-    borderRadius: 16,
-    paddingVertical: 16,
-    paddingHorizontal: 24,
+    backgroundColor: 'rgba(255, 215, 0, 0.9)',
+    borderRadius: 20,
+    paddingVertical: 18,
+    paddingHorizontal: 28,
     flex: 1,
-    gap: 8,
+    gap: 10,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.3)',
+    borderColor: 'rgba(255, 255, 255, 0.4)',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 12,
+    elevation: 6,
   },
   translating: {
-    backgroundColor: 'rgba(245, 158, 11, 0.8)',
+    backgroundColor: 'rgba(255, 152, 0, 0.9)',
   },
   translateText: {
     color: '#FFFFFF',
-    fontSize: 16,
-    fontFamily: 'Inter-SemiBold',
+    fontSize: 17,
+    fontFamily: 'Inter-Bold',
+    fontWeight: '700',
   },
   aiInfo: {
-    marginTop: 16,
+    marginTop: 20,
   },
   aiRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: 10,
   },
   aiText: {
-    color: 'rgba(255, 255, 255, 0.8)',
-    fontSize: 14,
-    fontFamily: 'Inter-Regular',
+    color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: 15,
+    fontFamily: 'Inter-Medium',
     flex: 1,
+    fontWeight: '500',
   },
 });

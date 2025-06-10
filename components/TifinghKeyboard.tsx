@@ -54,36 +54,46 @@ export function TifinghKeyboard({ onCharacterPress, visible }: TifinghKeyboardPr
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 8,
+    marginVertical: 12,
   },
   header: {
-    marginBottom: 16,
+    marginBottom: 20,
   },
   title: {
     color: '#FFFFFF',
-    fontSize: 18,
-    fontFamily: 'Inter-SemiBold',
+    fontSize: 19,
+    fontFamily: 'Inter-Bold',
+    fontWeight: '700',
   },
   keyboard: {
-    gap: 8,
+    gap: 10,
   },
   row: {
     flexDirection: 'row',
-    gap: 8,
+    gap: 10,
   },
   key: {
-    width: 44,
-    height: 44,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    borderRadius: 8,
+    width: 48,
+    height: 48,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.3)',
+    borderColor: 'rgba(255, 255, 255, 0.35)',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
   },
   keyText: {
     color: '#FFFFFF',
-    fontSize: 20,
+    fontSize: 22,
     fontFamily: 'Inter-Bold',
+    fontWeight: '700',
   },
 });

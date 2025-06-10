@@ -128,13 +128,13 @@ export default function GovernmentScreen() {
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
-      case 'Parliament': return <Users size={16} color="#3B82F6" strokeWidth={2} />;
-      case 'Legal': return <Scale size={16} color="#8B5CF6" strokeWidth={2} />;
-      case 'Administrative': return <FileText size={16} color="#10B981" strokeWidth={2} />;
-      case 'Rights': return <Scale size={16} color="#F59E0B" strokeWidth={2} />;
-      case 'Education': return <BookOpen size={16} color="#EF4444" strokeWidth={2} />;
-      case 'Services': return <Building2 size={16} color="#06B6D4" strokeWidth={2} />;
-      default: return <FileText size={16} color="#6B7280" strokeWidth={2} />;
+      case 'Parliament': return <Users size={18} color="#2196F3" strokeWidth={2.5} />;
+      case 'Legal': return <Scale size={18} color="#9C27B0" strokeWidth={2.5} />;
+      case 'Administrative': return <FileText size={18} color="#4CAF50" strokeWidth={2.5} />;
+      case 'Rights': return <Scale size={18} color="#FF9800" strokeWidth={2.5} />;
+      case 'Education': return <BookOpen size={18} color="#F44336" strokeWidth={2.5} />;
+      case 'Services': return <Building2 size={18} color="#00BCD4" strokeWidth={2.5} />;
+      default: return <FileText size={18} color="#9E9E9E" strokeWidth={2.5} />;
     }
   };
 
@@ -144,7 +144,7 @@ export default function GovernmentScreen() {
         <SafeAreaView style={styles.safeArea}>
           <View style={styles.header}>
             <View style={styles.titleRow}>
-              <Building2 size={32} color="#FFFFFF" strokeWidth={2} />
+              <Building2 size={34} color="#FFFFFF" strokeWidth={2.5} />
               <Text style={styles.title}>Government</Text>
             </View>
             <Text style={styles.subtitle}>Official terminology and parliamentary phrases</Text>
@@ -152,7 +152,7 @@ export default function GovernmentScreen() {
 
           <GlassCard style={styles.rightsInfo}>
             <View style={styles.infoHeader}>
-              <Scale size={20} color="#F59E0B" strokeWidth={2} />
+              <Scale size={22} color="#FF9800" strokeWidth={2.5} />
               <Text style={styles.infoTitle}>Constitutional Right</Text>
             </View>
             <Text style={styles.infoText}>
@@ -219,7 +219,7 @@ export default function GovernmentScreen() {
                       style={styles.speakButton}
                       onPress={() => handleSpeak(phrase)}
                     >
-                      <Volume2 size={20} color="#FFFFFF" strokeWidth={2} />
+                      <Volume2 size={22} color="#FFFFFF" strokeWidth={2.5} />
                     </TouchableOpacity>
                   </View>
                   <Text style={styles.phraseText}>
@@ -252,51 +252,55 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginBottom: 24,
-    marginTop: 20,
+    marginBottom: 28,
+    marginTop: 24,
     paddingHorizontal: 20,
   },
   titleRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
-    marginBottom: 8,
+    gap: 14,
+    marginBottom: 10,
   },
   title: {
-    fontSize: 28,
+    fontSize: 30,
     fontFamily: 'Inter-Bold',
     color: '#FFFFFF',
+    fontWeight: '700',
   },
   subtitle: {
-    fontSize: 16,
-    fontFamily: 'Inter-Regular',
-    color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: 17,
+    fontFamily: 'Inter-Medium',
+    color: 'rgba(255, 255, 255, 0.95)',
     textAlign: 'center',
+    fontWeight: '500',
   },
   rightsInfo: {
     marginHorizontal: 20,
-    marginBottom: 16,
+    marginBottom: 20,
   },
   infoHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
-    marginBottom: 8,
+    gap: 10,
+    marginBottom: 10,
   },
   infoTitle: {
     color: '#FFFFFF',
-    fontSize: 16,
-    fontFamily: 'Inter-SemiBold',
+    fontSize: 17,
+    fontFamily: 'Inter-Bold',
+    fontWeight: '700',
   },
   infoText: {
-    color: 'rgba(255, 255, 255, 0.9)',
-    fontSize: 14,
-    fontFamily: 'Inter-Regular',
-    lineHeight: 20,
+    color: 'rgba(255, 255, 255, 0.95)',
+    fontSize: 15,
+    fontFamily: 'Inter-Medium',
+    lineHeight: 22,
+    fontWeight: '500',
   },
   controls: {
-    marginBottom: 16,
-    gap: 12,
+    marginBottom: 20,
+    gap: 16,
   },
   categoryScroll: {
     paddingHorizontal: 20,
@@ -305,41 +309,43 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   categoryButton: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    borderRadius: 20,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    marginRight: 12,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    borderRadius: 22,
+    paddingHorizontal: 18,
+    paddingVertical: 10,
+    marginRight: 14,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.3)',
+    borderColor: 'rgba(255, 255, 255, 0.35)',
   },
   categoryActive: {
-    backgroundColor: 'rgba(59, 130, 246, 0.8)',
+    backgroundColor: 'rgba(33, 150, 243, 0.9)',
   },
   categoryText: {
-    color: 'rgba(255, 255, 255, 0.8)',
-    fontSize: 12,
-    fontFamily: 'Inter-Medium',
+    color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: 13,
+    fontFamily: 'Inter-SemiBold',
+    fontWeight: '600',
   },
   categoryTextActive: {
     color: '#FFFFFF',
   },
   languageButton: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    borderRadius: 16,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    marginRight: 12,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    borderRadius: 18,
+    paddingHorizontal: 18,
+    paddingVertical: 10,
+    marginRight: 14,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.3)',
+    borderColor: 'rgba(255, 255, 255, 0.35)',
   },
   languageActive: {
-    backgroundColor: 'rgba(16, 185, 129, 0.8)',
+    backgroundColor: 'rgba(76, 175, 80, 0.9)',
   },
   languageText: {
-    color: 'rgba(255, 255, 255, 0.8)',
-    fontSize: 12,
-    fontFamily: 'Inter-Medium',
+    color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: 13,
+    fontFamily: 'Inter-SemiBold',
+    fontWeight: '600',
   },
   languageTextActive: {
     color: '#FFFFFF',
@@ -349,53 +355,64 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   phraseButton: {
-    marginBottom: 16,
+    marginBottom: 20,
   },
   phraseCard: {
     borderWidth: 1,
-    borderColor: 'rgba(59, 130, 246, 0.4)',
+    borderColor: 'rgba(33, 150, 243, 0.5)',
   },
   phraseHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 16,
   },
   categoryBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: 10,
   },
   categoryLabel: {
-    color: 'rgba(255, 255, 255, 0.8)',
-    fontSize: 12,
-    fontFamily: 'Inter-Medium',
+    color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: 13,
+    fontFamily: 'Inter-SemiBold',
+    fontWeight: '600',
   },
   speakButton: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: 'rgba(59, 130, 246, 0.8)',
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(33, 150, 243, 0.9)',
     justifyContent: 'center',
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    elevation: 3,
   },
   phraseText: {
     color: '#FFFFFF',
-    fontSize: 16,
-    fontFamily: 'Inter-SemiBold',
-    lineHeight: 24,
-    marginBottom: 8,
+    fontSize: 17,
+    fontFamily: 'Inter-Bold',
+    lineHeight: 26,
+    marginBottom: 10,
+    fontWeight: '700',
   },
   englishText: {
-    color: 'rgba(255, 255, 255, 0.7)',
-    fontSize: 14,
-    fontFamily: 'Inter-Regular',
-    lineHeight: 20,
-    marginBottom: 8,
+    color: 'rgba(255, 255, 255, 0.8)',
+    fontSize: 15,
+    fontFamily: 'Inter-Medium',
+    lineHeight: 22,
+    marginBottom: 10,
+    fontWeight: '500',
   },
   contextText: {
-    color: 'rgba(255, 255, 255, 0.6)',
-    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontSize: 13,
     fontFamily: 'Inter-Regular',
     fontStyle: 'italic',
   },

@@ -119,9 +119,9 @@ export default function EmergencyScreen() {
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case 'high': return '#EF4444';
-      case 'medium': return '#F59E0B';
-      default: return '#10B981';
+      case 'high': return '#FF1744';
+      case 'medium': return '#FF9800';
+      default: return '#4CAF50';
     }
   };
 
@@ -140,7 +140,7 @@ export default function EmergencyScreen() {
         <SafeAreaView style={styles.safeArea}>
           <View style={styles.header}>
             <View style={styles.titleRow}>
-              <AlertTriangle size={32} color="#FFFFFF" strokeWidth={2} />
+              <AlertTriangle size={34} color="#FFFFFF" strokeWidth={2.5} />
               <Text style={styles.title}>Emergency</Text>
             </View>
             <Text style={styles.subtitle}>Critical phrases for emergency situations</Text>
@@ -148,7 +148,7 @@ export default function EmergencyScreen() {
 
           <GlassCard style={styles.emergencyInfo}>
             <View style={styles.infoRow}>
-              <Phone size={20} color="#10B981" strokeWidth={2} />
+              <Phone size={22} color="#4CAF50" strokeWidth={2.5} />
               <Text style={styles.infoText}>Morocco Emergency: 15 (Medical) • 19 (Fire) • 177 (Police)</Text>
             </View>
           </GlassCard>
@@ -217,7 +217,7 @@ export default function EmergencyScreen() {
                       style={styles.speakButton}
                       onPress={() => handleSpeak(phrase)}
                     >
-                      <Volume2 size={20} color="#FFFFFF" strokeWidth={2} />
+                      <Volume2 size={22} color="#FFFFFF" strokeWidth={2.5} />
                     </TouchableOpacity>
                   </View>
                   <Text style={styles.phraseText}>
@@ -247,45 +247,48 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginBottom: 24,
-    marginTop: 20,
+    marginBottom: 28,
+    marginTop: 24,
     paddingHorizontal: 20,
   },
   titleRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
-    marginBottom: 8,
+    gap: 14,
+    marginBottom: 10,
   },
   title: {
-    fontSize: 28,
+    fontSize: 30,
     fontFamily: 'Inter-Bold',
     color: '#FFFFFF',
+    fontWeight: '700',
   },
   subtitle: {
-    fontSize: 16,
-    fontFamily: 'Inter-Regular',
-    color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: 17,
+    fontFamily: 'Inter-Medium',
+    color: 'rgba(255, 255, 255, 0.95)',
     textAlign: 'center',
+    fontWeight: '500',
   },
   emergencyInfo: {
     marginHorizontal: 20,
-    marginBottom: 16,
+    marginBottom: 20,
   },
   infoRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
+    gap: 14,
   },
   infoText: {
     color: '#FFFFFF',
-    fontSize: 14,
-    fontFamily: 'Inter-Medium',
+    fontSize: 15,
+    fontFamily: 'Inter-SemiBold',
     flex: 1,
+    fontWeight: '600',
   },
   controls: {
-    marginBottom: 16,
-    gap: 12,
+    marginBottom: 20,
+    gap: 16,
   },
   categoryScroll: {
     paddingHorizontal: 20,
@@ -294,41 +297,43 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   categoryButton: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    borderRadius: 20,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    marginRight: 12,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    borderRadius: 22,
+    paddingHorizontal: 22,
+    paddingVertical: 12,
+    marginRight: 14,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.3)',
+    borderColor: 'rgba(255, 255, 255, 0.35)',
   },
   categoryActive: {
-    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    backgroundColor: 'rgba(255, 255, 255, 0.45)',
   },
   categoryText: {
-    color: 'rgba(255, 255, 255, 0.8)',
-    fontSize: 14,
-    fontFamily: 'Inter-Medium',
+    color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: 15,
+    fontFamily: 'Inter-SemiBold',
+    fontWeight: '600',
   },
   categoryTextActive: {
     color: '#FFFFFF',
   },
   languageButton: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    borderRadius: 16,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    marginRight: 12,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    borderRadius: 18,
+    paddingHorizontal: 18,
+    paddingVertical: 10,
+    marginRight: 14,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.3)',
+    borderColor: 'rgba(255, 255, 255, 0.35)',
   },
   languageActive: {
-    backgroundColor: 'rgba(16, 185, 129, 0.8)',
+    backgroundColor: 'rgba(76, 175, 80, 0.9)',
   },
   languageText: {
-    color: 'rgba(255, 255, 255, 0.8)',
-    fontSize: 12,
-    fontFamily: 'Inter-Medium',
+    color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: 13,
+    fontFamily: 'Inter-SemiBold',
+    fontWeight: '600',
   },
   languageTextActive: {
     color: '#FFFFFF',
@@ -338,52 +343,63 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   phraseButton: {
-    marginBottom: 12,
+    marginBottom: 16,
   },
   phraseCard: {
     borderWidth: 2,
-    borderColor: 'rgba(255, 255, 255, 0.3)',
+    borderColor: 'rgba(255, 255, 255, 0.35)',
   },
   phraseHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 16,
   },
   priorityBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: 10,
   },
   priorityDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
+    width: 10,
+    height: 10,
+    borderRadius: 5,
   },
   categoryLabel: {
-    color: 'rgba(255, 255, 255, 0.8)',
-    fontSize: 12,
-    fontFamily: 'Inter-Medium',
+    color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: 13,
+    fontFamily: 'Inter-SemiBold',
+    fontWeight: '600',
   },
   speakButton: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: 'rgba(16, 185, 129, 0.8)',
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(76, 175, 80, 0.9)',
     justifyContent: 'center',
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    elevation: 3,
   },
   phraseText: {
     color: '#FFFFFF',
-    fontSize: 18,
-    fontFamily: 'Inter-SemiBold',
-    lineHeight: 28,
-    marginBottom: 8,
+    fontSize: 19,
+    fontFamily: 'Inter-Bold',
+    lineHeight: 30,
+    marginBottom: 10,
+    fontWeight: '700',
   },
   englishText: {
-    color: 'rgba(255, 255, 255, 0.7)',
-    fontSize: 14,
-    fontFamily: 'Inter-Regular',
-    lineHeight: 20,
+    color: 'rgba(255, 255, 255, 0.8)',
+    fontSize: 15,
+    fontFamily: 'Inter-Medium',
+    lineHeight: 22,
+    fontWeight: '500',
   },
 });
