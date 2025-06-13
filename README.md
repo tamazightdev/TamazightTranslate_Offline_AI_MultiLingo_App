@@ -1,4 +1,4 @@
-# TamazightTranslate - Offline AI Translation App
+# Multi-Lingo Tamazight Edition - On Device AI Translation App
 
 A beautiful, production-ready mobile translation app built with Expo and React Native, featuring offline AI translation capabilities for Tamazight (Berber) languages. The app provides seamless translation between Tamazight, Arabic, French, and English with specialized features for emergency situations and government/parliamentary use.
 
