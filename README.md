@@ -9,7 +9,6 @@ A beautiful, production-ready mobile translation app built with Expo and React N
 - **Multi-Language Support**: Tamazight (ⵜⴰⵎⴰⵣⵉⵖⵜ), Arabic, French, and English
 - **Tifinagh Keyboard**: Built-in virtual keyboard for typing in Tifinagh script
 - **Voice Input & Output**: Speech-to-text input and text-to-speech output
-- **Camera Translation**: OCR capabilities for translating text from images
 - **Real-time Translation**: Instant translation as you type
 
 ### Specialized Features
@@ -208,6 +207,9 @@ The app uses a tab-based navigation structure with four main sections:
 - **Script Support**: Latin, Arabic, and Tifinagh scripts
 - **Voice Support**: Text-to-speech for all languages
 - **Cultural Context**: Phrases adapted for Moroccan context
+
+### Future Features
+- **Camera Translation**: OCR capabilities for translating text from images
 
 ## 📋 Development Scripts
 
