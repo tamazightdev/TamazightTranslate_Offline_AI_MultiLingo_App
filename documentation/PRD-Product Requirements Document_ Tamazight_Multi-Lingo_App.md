@@ -1,4 +1,4 @@
-PRD-Product Requirements Document: The "Multi-Lingo Tamazight Edition App
+## **PRD-Product Requirements Document: The "Multi-Lingo Tamazight Edition App**
 
 The "Multi-Lingo Tamazight Edition App will initially be an Android mobile application offering on-device translation services between Tamazight (Tifinagh and Latin scripts), Arabic, French, and English with other languages to be added in future releases. It will initially support text, and voice output, with future releases having multimodal voice input/output as well as image and video input.  It is being designed for high accuracy and offline functionality, making it suitable for emergency, governmental, and everyday use.
 
