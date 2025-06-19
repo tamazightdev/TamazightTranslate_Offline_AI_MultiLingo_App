@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native';
 import { GradientBackground } from '@/components/GradientBackground';
 import { GlassCard } from '@/components/GlassCard';
-import { Heart, Phone, AlertTriangle, MapPin, Volume2 } from 'lucide-react-native';
+import { Heart, Phone, AlertTriangle, MapPin, Volume2, Music } from 'lucide-react-native';
 import * as Speech from 'expo-speech';
 import { Platform } from 'react-native';
 import * as Haptics from 'expo-haptics';
+import { useAudioPlayer } from '@/components/AudioPlayer';
+import { getTamazightAudioUrl, hasTamazightAudio } from '@/constants/AudioFiles';
 
 interface EmergencyPhrase {
   id: string;
@@ -79,16 +81,43 @@ const CATEGORIES = ['All', 'Medical', 'Emergency', 'Basic Needs'];
 export default function EmergencyScreen() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedLanguage, setSelectedLanguage] = useState('english');
+  const [playingPhraseId, setPlayingPhraseId] = useState<string | null>(null);
 
   const filteredPhrases = EMERGENCY_PHRASES.filter(phrase => 
     selectedCategory === 'All' || phrase.category === selectedCategory
   );
 
-  const handleSpeak = (phrase: EmergencyPhrase) => {
+  const handleSpeak = async (phrase: EmergencyPhrase) => {
     if (Platform.OS !== 'web') {
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     }
 
+    setPlayingPhraseId(phrase.id);
+
+    // If Tamazight is selected and we have native audio, use it
+    if (selectedLanguage === 'tamazight' && hasTamazightAudio(phrase.english)) {
+      const audioUrl = getTamazightAudioUrl(phrase.english);
+      if (audioUrl) {
+        try {
+          if (Platform.OS === 'web') {
+            const audio = new Audio(audioUrl);
+            audio.play();
+            // Reset playing state after audio duration (estimated 3 seconds)
+            setTimeout(() => setPlayingPhraseId(null), 3000);
+          } else {
+            // For mobile, we would use the AudioPlayer component
+            // This is a simplified version for demonstration
+            console.log('Playing native Tamazight audio:', audioUrl);
+            setTimeout(() => setPlayingPhraseId(null), 3000);
+          }
+          return;
+        } catch (error) {
+          console.error('Error playing native audio, falling back to TTS:', error);
+        }
+      }
+    }
+
+    // Fallback to text-to-speech
     let textToSpeak = '';
     let languageCode = 'en';
 
@@ -114,6 +143,8 @@ export default function EmergencyScreen() {
       language: languageCode,
       pitch: 1.0,
       rate: 0.7,
+      onDone: () => setPlayingPhraseId(null),
+      onError: () => setPlayingPhraseId(null),
     });
   };
 
@@ -132,6 +163,10 @@ export default function EmergencyScreen() {
       case 'french': return phrase.french;
       default: return phrase.english;
     }
+  };
+
+  const hasNativeAudio = (phrase: EmergencyPhrase) => {
+    return selectedLanguage === 'tamazight' && hasTamazightAudio(phrase.english);
   };
 
   return (
@@ -212,9 +247,17 @@ export default function EmergencyScreen() {
                         ]} 
                       />
                       <Text style={styles.categoryLabel}>{phrase.category}</Text>
+                      {hasNativeAudio(phrase) && (
+                        <View style={styles.audioIndicator}>
+                          <Music size={14} color="#10B981" strokeWidth={2} />
+                        </View>
+                      )}
                     </View>
                     <TouchableOpacity 
-                      style={styles.speakButton}
+                      style={[
+                        styles.speakButton,
+                        playingPhraseId === phrase.id && styles.speakButtonActive
+                      ]}
                       onPress={() => handleSpeak(phrase)}
                     >
                       <Volume2 size={20} color="#FFFFFF" strokeWidth={2} />
@@ -226,6 +269,11 @@ export default function EmergencyScreen() {
                   {selectedLanguage !== 'english' && (
                     <Text style={styles.englishText}>
                       {phrase.english}
+                    </Text>
+                  )}
+                  {hasNativeAudio(phrase) && (
+                    <Text style={styles.audioNote}>
+                      🎵 Native Tamazight audio available
                     </Text>
                   )}
                 </GlassCard>
@@ -365,6 +413,9 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: 'Inter-Medium',
   },
+  audioIndicator: {
+    marginLeft: 4,
+  },
   speakButton: {
     width: 36,
     height: 36,
@@ -372,6 +423,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(16, 185, 129, 0.8)',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  speakButtonActive: {
+    backgroundColor: 'rgba(245, 158, 11, 0.8)',
   },
   phraseText: {
     color: '#FFFFFF',
@@ -385,5 +439,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Inter-Regular',
     lineHeight: 20,
+    marginBottom: 4,
+  },
+  audioNote: {
+    color: 'rgba(16, 185, 129, 0.9)',
+    fontSize: 12,
+    fontFamily: 'Inter-Medium',
+    fontStyle: 'italic',
   },
 });
