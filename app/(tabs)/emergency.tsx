@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native';
 import { GradientBackground } from '@/components/GradientBackground';
 import { GlassCard } from '@/components/GlassCard';
-import { Heart, Phone, AlertTriangle, MapPin, Volume2, Music } from 'lucide-react-native';
+import { Heart, Phone, TriangleAlert as AlertTriangle, MapPin, Volume2, Music } from 'lucide-react-native';
 import * as Speech from 'expo-speech';
 import { Platform } from 'react-native';
 import * as Haptics from 'expo-haptics';
